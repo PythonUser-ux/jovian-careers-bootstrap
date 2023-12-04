@@ -12,3 +12,12 @@ you want to use "npm run start" for deployment and "npm run dev" for testing
 ------------------------------------------------------------------------------------------------------------
 in the directory "public" we are going to put all the files that are going to be sent to the browser directly and without changes.
 Indeed we are going to use this folder using "express.static"
+------------------------------------------------------------------------------------------------------------
+vercel.json is this case is required to help vercel understand how our project is structured, in particular:
+
+"builds"
+- "src": "src/app.js" specifies the main file we want to build and install all the dependencies for
+- "use": "@vercel/node" tell Vercel to use the node.js environment (which is among the ones Vercel supports)
+"routes"
+- "src": "/(.*)"       no matter what route we try to access...
+- "dest": "src/app.js" ...we want them all to be sent to src/app.js (not Vercel itself)
