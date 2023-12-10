@@ -110,7 +110,7 @@ app.post('/jobs/:id/apply',uploadConfig, (req, res) => {
   });
 
 
-const port = process.env.PORT || 3000; // this is the "default operator". Our application is going to use the port 3000 if not other port is specified, process.env.PORT equals *undefined* unless there's an environment variable named PORT
+const port = process.env.PORT || 3000; // || is used as the "default operator". Our application is going to use the port 3000 if not other port is specified, process.env.PORT equals *undefined* unless there's an environment variable named PORT
 // the result would be that when the application is running on a local server in wll run on port 3000, when the application is running on Vercel (let's say we are using this infrastructure platform) then process.env.PORT is going to be set by Vercel and used.
 
 app.listen(port, () => {
