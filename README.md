@@ -21,3 +21,16 @@ vercel.json is this case is required to help vercel understand how our project i
 "routes"
 - "src": "/(.*)"       no matter what route we try to access...
 - "dest": "src/app.js" ...we want them all to be sent to src/app.js (not Vercel itself)
+------------------------------------------------------------------------------------------------------------
+GET request: all the parameters will be sent as part of the *url* of the request
+POST request:  all the parameters will be sent as part of the *body* of the request
+
+Bonus: every request also has a *header*
+------------------------------------------------------------------------------------------------------------
+"npm install nodemailer dotenv body-parser" explanation
+
+*nodemailer* is a Node.js module for sending emails using a simple and flexible API.
+
+the *dotenv* package is used to insert sensitive information in the project (let's say we want tu share it on GitHub) but not visible in the code
+
+the request body posted using a POST request is then parsed using *body-parser*

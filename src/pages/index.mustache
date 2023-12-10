@@ -28,6 +28,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeKUygpAAAAAB6JQ6C6btRtG_lxGvoyC3gYCusL"></script>
   </head>
 
   <body>
@@ -110,6 +111,7 @@
       </div>
     </nav>
 
+
     <!--ABOUT SECTION-->
     <div class="container px-4">
       <div class="row flex-lg-row-reverse align-items-center g-4 py-4">
@@ -157,220 +159,50 @@
     <!--JOBS-->
     <div class="container px-4 mt-5">
       <h2 class="text-center mb-4">Job Opportunities</h2>
-
-      <!--JOBS LIST-->
-      <div class="d-md-none">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Frontend Developer</h5>
-            <h6 class="card-subtitle my-1 text-body-secondary">
-              Bengaluru, India • ₹ 12,00,000
-            </h6>
-            <small class="card-text text-body-secondary">
-              Posted Mar 3, 2023
-            </small>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <div class="card-body">
-            <h5 class="card-title">Full Stack Developer</h5>
-            <h6 class="card-subtitle my-1 text-body-secondary">
-              New Delhi, India • ₹ 12,00,000
-            </h6>
-            <small class="card-text text-body-secondary">
-              Posted Feb 1, 2023
-            </small>
-          </div>
-        </div>
-
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Data Scientist</h5>
-            <h6 class="card-subtitle my-1 text-body-secondary">
-              San Francisco, USA • $175,000
-            </h6>
-            <small class="card-text text-body-secondary">
-              Posted Dec 22, 2022
-            </small>
-          </div>
-        </div>
-
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">ML Engineer</h5>
-            <h6 class="card-subtitle my-1 text-body-secondary">
-              Remote • $80,000
-            </h6>
-            <small class="card-text text-body-secondary">
-              Posted Sep 19, 2022
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <!--JOBS TABLE-->
-      <div class="offset-lg-2 col-lg-8">
-        <table class="d-none d-md-table table table-striped table-bordered">
-          <tr class="table-primary text-center">
-            <th rowspan="2">Job Title</th>
-            <th colspan="2">Location</th>
-            <th rowspan="2">Salary</th>
-            <th rowspan="2">Posted On</th>
-          </tr>
-          <tr class="table-primary text-center">
-            <th>City</th>
-            <th>Country</th>
-          </tr>
-          <tr>
-            <td>Frontend Developer</td>
-            <td>Bengaluru</td>
-            <td>India</td>
-            <td>₹12,00,000</td>
-            <td>Mar 3, 2023</td>
-          </tr>
-
-          <tr>
-            <td>Full Stack Developer</td>
-            <td>New Delhi</td>
-            <td>India</td>
-            <td>₹15,00,000</td>
-            <td>Feb 1, 2023</td>
-          </tr>
-
-          <tr>
-            <td>Data Scientist</td>
-            <td>San Francisco</td>
-            <td>USA</td>
-            <td>$175,000</td>
-            <td>Dec 22, 2022</td>
-          </tr>
-
-          <tr>
-            <td>ML Engineer</td>
-            <td colspan="2">Remote</td>
-            <td>$80,000</td>
-            <td>Sep 19, 2022</td>
-          </tr>
-        </table>
-      </div>
     </div>
 
-    <!--APPLICATION FORM-->
-    <div class="container px-4 mt-5">
-      <h2 class="text-center mb-4">Submit Your Application</h2>
-      <form
-        class="offset-lg-2 col-lg-8"
-        action="https://formbold.com/s/3wvKl"
-        method="POST"
-        enctype="multipart/form-data"
-      >
-        <!--NAME-->
-        <div class="mb-3 col-sm-6">
-          <label for="fullname" class="form-label"> Full Name </label>
-          <input
-            type="text"
-            class="form-control"
-            name="name"
-            required
-            placeholder="John Doe"
-            id="fullname"
-          />
-        </div>
+    <!--JOBS LIST-->
+  <div class="d-md-none">
 
-        <!--EMAIL-->
-        <div class="mb-3 col-sm-6">
-          <label for="email" class="form-label"> Email address </label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            placeholder="john@doe.com"
-            id="email"
-            aria-describedby="emailHelp"
-            required
-          />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
+    {{#jobs}}  <!--it is also possible to use templates in css, for example-->
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><a href="/jobs/{{id}}">{{title}}</a></h5>
+          <h6 class="card-subtitle my-1 text-body-secondary">
+            {{location}} • {{salary}}
+          </h6>
+          <small class="card-text text-body-secondary">
+            Posted {{posted}}
+          </small>
         </div>
+      </div>
+    {{/jobs}}
 
-        <!--PHONE-->
-        <div class="mb-3 col-sm-6">
-          <label for="phone" class="form-label">Phone</label>
-          <input
-            type="tel"
-            class="form-control"
-            id="phone"
-            placeholder="+919898989898"
-            name="phone"
-            required
-          />
-        </div>
+  </div>
 
-        <!--DOB-->
-        <div class="mb-3 col-sm-6">
-          <label for="dob" class="form-label">Date of Birth</label>
-          <input
-            type="date"
-            class="form-control"
-            id="phone"
-            name="phone"
-            required
-          />
-        </div>
+  <!--JOBS TABLE-->
+  <div class="offset-lg-2 col-lg-8">
+    <table class="d-none d-md-table table table-striped table-bordered">
+      <tr class="table-primary text-center">
+        <th>Job Title</th>
+        <th>Location</th>
+        <th>Salary</th>
+        <th>Posted On</th>
+      </tr>
 
-        <!--POSITION-->
-        <div class="mb-3 col-sm-6">
-          <label for="position" class="form-label">Position Applied For</label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected value="">Select a position</option>
-            <option value="frontend developer">Frontend Developer</option>
-            <option value="full stack developer">Full Stack Developer</option>
-            <option value="data scientist">Data Scientist</option>
-            <option value="ml engineer ">ML Engineer</option>
-          </select>
-        </div>
+      {{#jobs}}
+        <tr>
+          <td><a href="/jobs/{{id}}">{{title}}</a></td>
+          <td>{{location}}</td>
+          <td>{{salary}}</td>
+          <td>{{posted}}</td>
+        </tr>
+      {{/jobs}}
 
-        <!--RESUME-->
-        <div class="mb-3 col-sm-6">
-          <label for="resume" class="form-label">Upload Resume</label>
-          <input
-            type="file"
-            class="form-control"
-            id="resume"
-            name="resume"
-            required
-          />
-        </div>
+    </table>
+  </div>
+</div>
 
-        <!--COVER LETTER-->
-        <div class="mb-3">
-          <label for="resume" class="form-label">Cover Letter</label>
-          <textarea
-            placeholder="Why should we consider you for the job?"
-            class="form-control"
-            id="resume"
-            name="resume"
-            rows="5"
-            required
-          ></textarea>
-        </div>
-
-        <!--TERMS-->
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="terms" />
-          <label class="form-check-label" for="terms"
-            >I agree to the terms and coditions.</label
-          >
-        </div>
-
-        <!--SUBMIT BUTTON-->
-        <button type="submit" class="btn btn-primary">
-          Submit Application
-        </button>
-      </form>
-    </div>
 
     <!--FOOTER-->
     <div class="container">
